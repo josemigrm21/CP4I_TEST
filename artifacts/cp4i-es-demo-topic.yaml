@@ -1,0 +1,61 @@
+asyncapi: 2.1.0
+info:
+  description: |-
+    Events for order cancellations recorded by the order management system.
+    
+    An event will be emitted for every order that is cancelled.
+    
+    Note that no specific information about the order details is included in the event. You could use the Orders topic to identify information about the order based on the orderid field in the cancellation event.
+  title: cp4i-es-demo-topic
+  version: 1.0.0
+  x-ibm-summary: |-
+    Events for order cancellations recorded by the order management system.
+    
+    An event will be emitted for every order that is cancelled.
+    
+    Note that no specific information about the order details is included in the event. You could use the Orders topic to identify information about the order based on the orderid field in the cancellation event.
+  x-ibm-name: cp4i-es-demo-topic
+  contact:
+    email: jgr@demo.cp4i.ibm.com
+tags:
+  - name: cp4i
+  - name: demo
+channels:
+  cp4i-es-demo-topic:
+    bindings:
+      kafka:
+        partitions: 1
+        replicas: 3
+    subscribe:
+      message:
+        examples:
+          - payload: {"id":"00Q0o000000l0aaAAA","fname":"Thomas","lname":"Monard","email":"bupmivwa@rihcotje.ma","phone":"(609)705-1122","company":"pefnehakaavizuk","comments":"lapub"}
+        payload: {}
+servers:
+  cluster:
+    url: $(bootstrapServerAddress)
+    protocol: kafka-secure
+    security:
+      - X-IBM-Client-Id: []
+components:
+  securitySchemes:
+    X-IBM-Client-Id:
+      type: plain
+x-ibm-configuration:
+  enforced: true
+  phase: realized
+  assembly:
+    execute:
+      - invoke-kafka:
+          title: invoke-kafka
+          version: 1.0.0
+          bootstrap.servers: $(bootstrapServerAddress)
+          clusterconfigid: 47d50c51-29de-4355-9790-f7ce8ace123b
+  properties:
+    bootstrapServerAddress:
+      value: handled.by.eem
+  type: asyncapi
+  testable: false
+  x-ibm-eem: 47d50c51-29de-4355-9790-f7ce8ace123b
+  cors:
+    enabled: false

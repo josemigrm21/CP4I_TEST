@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:complexType name="ContactType">
+    	<xsd:sequence>
+    		<xsd:element name="id" type="xsd:string"></xsd:element>
+    		<xsd:element name="fname" type="xsd:string"></xsd:element>
+    		<xsd:element name="lname" type="xsd:string"></xsd:element>
+    		<xsd:element name="email" type="xsd:string"></xsd:element>
+    		<xsd:element name="phone" type="xsd:string"></xsd:element>
+    		<xsd:element name="company" type="xsd:string"></xsd:element>
+    		<xsd:element name="comments" type="xsd:string"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="Contact" type="ContactType"></xsd:element>
+</xsd:schema>

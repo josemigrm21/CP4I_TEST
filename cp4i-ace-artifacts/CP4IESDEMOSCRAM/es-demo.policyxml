@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<policies>
+  <policy policyType="Kafka" policyName="es-demo" policyTemplate="Kafka">
+    <bootstrapServers>${ES_BOOTSTRAP_SERVER}</bootstrapServers>
+    <securityProtocol>SASL_SSL</securityProtocol>
+    <saslMechanism>SCRAM-SHA-512</saslMechanism>
+    <sslProtocol>TLSv1.2</sslProtocol>
+    <securityIdentity>esdemoSecId</securityIdentity>
+    <saslConfig>org.apache.kafka.common.security.scram.ScramLoginModule required;</saslConfig>
+    <sslKeystoreLocation></sslKeystoreLocation>
+    <sslKeystoreType></sslKeystoreType>
+    <sslKeystoreSecurityIdentity></sslKeystoreSecurityIdentity>
+    <sslKeySecurityIdentity></sslKeySecurityIdentity>
+    <sslTruststoreLocation>/home/aceuser/truststores/es-cert.jks</sslTruststoreLocation>
+    <sslTruststoreType>JKS</sslTruststoreType>
+    <sslTruststoreSecurityIdentity>truststorePass</sslTruststoreSecurityIdentity>
+    <sslEnableCertificateHostnameChecking>false</sslEnableCertificateHostnameChecking>
+    <krbServiceName></krbServiceName>
+  </policy>
+</policies>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<policies>
+  <policy policyType="UserDefined" policyName="jgr-demo-properties" policyTemplate="UserDefined">
+    <email-from>admin-cp4i@ibm.com</email-from>
+    <email-subject>Greetings from CP4I</email-subject>
+  </policy>
+</policies>

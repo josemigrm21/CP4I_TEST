@@ -1,0 +1,44 @@
+apiVersion: apiconnect.ibm.com/v1beta1
+kind: APIConnectCluster
+metadata:
+  annotations:
+    apiconnect-operator/backups-not-configured: 'true'
+  labels:
+    app.kubernetes.io/instance: apiconnect
+    app.kubernetes.io/managed-by: ibm-apiconnect
+    app.kubernetes.io/name: apiconnect-small
+  name: apim-demo
+  namespace: tools
+spec:
+  analytics:
+    mtlsValidateClient: true
+  license:
+    accept: true
+    license: L-MMBZ-295QZQ
+    metric: VIRTUAL_PROCESSOR_CORE
+    use: nonproduction
+  portal:
+    mtlsValidateClient: true
+  profile: n1xc7.m48
+  version: 10.0.7.0
+  storageClassName: ocs-storagecluster-ceph-rbd
+  management:
+    billing:
+      enabled: true
+    governance:
+      enabled: true
+  gateway:
+    jaegerTracing:
+      samplingType: const
+      propagationFormat: w3c
+      samplingRate: '1'
+      agentImage: 'icr.io/instana/instana-dp-agent-image:latest'
+      tls:
+        disabled: true
+        skipHostVerify: false
+      env:
+        - name: INSTANA_AGENT_HOST
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: status.hostIP

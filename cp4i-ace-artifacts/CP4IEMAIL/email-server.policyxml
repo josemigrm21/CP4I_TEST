@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<policies>
+  <policy policyType="SMTP" policyName="email-server" policyTemplate="SMTP">
+    <smtpServer>smtp.mailtrap.io:2525</smtpServer>
+    <securityIdentity>mailtrapsecid</securityIdentity>
+  </policy>
+</policies>
