@@ -1,0 +1,9 @@
+{
+    "eventSourceId": "<templated>",
+    "alias": "STOCK.MOVEMENT",
+    "name": "Self service",
+    "hidden": false,
+    "allowSubscriptions": true,
+    "gatewayGroups": [ "egw-group" ],
+    "controls": []
+}
